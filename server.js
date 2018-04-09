@@ -1,4 +1,5 @@
 const express = require('express');
+var exec = require('child_process');
 
 const app = express();
 const port = process.env.PORT || 8363;
@@ -9,6 +10,10 @@ app.get('/api/hello', (req, res) => {
 
 app.get('/record', (req, res) => {
 	console.log("Pressed R");
+
+	exec('start chrome www.google.com', function(error){
+
+	});
 	
 });
 
@@ -19,7 +24,7 @@ app.get('/play', (req, res) => {
 
 app.get('/stop', (req, res) => {
 	console.log("Pressed Space");
-	
+
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
