@@ -11,10 +11,6 @@ app.get('/api/hello', (req, res) => {
 app.get('/record', (req, res) => {
 	console.log("Pressed R");
 
-	exec('start chrome www.google.com', function(error){
-
-	});
-	
 });
 
 app.get('/play', (req, res) => {
