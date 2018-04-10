@@ -14,8 +14,8 @@ app.get('/record', (req, res) => {
 		console.log("RECORD IS TRUE");
 		res.send('record: ' + false);
 	}
-
-	res.send('record: ' + req.query['record']);
+	else
+	res.send('record: ' + true);
 
 });
 
@@ -33,8 +33,8 @@ app.get('/play', (req, res) => {
 		console.log("PLAY IS TRUE");
 		res.send('play: ' + false);
 	}
-
-	res.send('play: ' + req.query['play']);
+	else
+	res.send('play: ' + true);
 });
 
 app.post('/play', (req, res) => {
@@ -51,8 +51,8 @@ app.get('/stop', (req, res) => {
 		console.log("STOP IS TRUE");
 		res.send('stop: ' + false);
 	}
-
-	res.send('stop: ' + req.query['stop']);
+	else
+	res.send('stop: ' + true);
 	
 });
 
