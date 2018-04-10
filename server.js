@@ -1,25 +1,60 @@
 const express = require('express');
-var exec = require('child_process');
+var bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 8363;
+const port = process.env.PORT || 5000;
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/record', (req, res) => {
-	console.log("Pressed R");
+
+	if(req.query['record']=="true")
+	{
+		console.log("RECORD IS TRUE");
+		res.send('record: ' + false);
+	}
+
+});
+
+app.post('/record', (req, res) => {
+
+	console.log("POST RECORD");
+	res.send('record: ' + true);
 
 });
 
 app.get('/play', (req, res) => {
-	console.log("Pressed Space");
+
+	if(req.query['play']=="true")
+	{
+		console.log("PLAY IS TRUE");
+		res.send('play: ' + false);
+	}
 	
 });
 
+app.post('/play', (req, res) => {
+
+	console.log("POST PLAY");
+	res.send('play: ' + true);
+
+});
+
 app.get('/stop', (req, res) => {
-	console.log("Pressed Space");
+
+	if(req.query['stop']=="true")
+	{
+		console.log("STOP IS TRUE");
+		res.send('stop: ' + false);
+	}
+	
+});
+
+app.post('/stop', (req, res) => {
+
+	console.log("POST STOP");
+	res.send('stop: ' + true);
 
 });
 
