@@ -13,18 +13,18 @@ var io_c = require('socket.io-client');
 
 
 app.get('/record', (req, res) => {
-
+      console.log("ABOUT TO RECORD");
      var socket = io_c.connect('https://audacity-controller-server.herokuapp.com/record');
 });
 
 app.get('/play', (req, res) => {
-
+  console.log("ABOUT TO PLAY");
 	var socket = io_c.connect('https://audacity-controller-server.herokuapp.com/play');
 });
 
 
 app.get('/stop', (req, res) => {
-
+  console.log("ABOUT TO STOP");
 	var socket = io_c.connect('https://audacity-controller-server.herokuapp.com/stop');
 });
 
@@ -47,9 +47,6 @@ io.of('/stop').on('connection', function (socket) {
   		socket.broadcast.emit('stop', 'You are now stopped !');
 
   });
-
-
-
 
 
 
